@@ -36,7 +36,7 @@ export const Home = () => {
       setAlbumCount(2)
     }
   }, [])
-
+  //
   return (
     <Container>
       {/* 제목 */}
