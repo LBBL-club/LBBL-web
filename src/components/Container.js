@@ -6,6 +6,7 @@ export const ContainerStyle = styled.main`
   flex-direction: column;
   margin: 0 auto;
   width: ${isMobile ? '95%' : '80%'};
+  max-width: 1720px;
   height: 100%;
 `
 

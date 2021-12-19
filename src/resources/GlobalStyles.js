@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { COLORS } from './colors'
+import { isMobile } from 'react-device-detect'
+import { fontM, fontS, fontL } from './fonts'
 
 import { default as CourierPrime } from './fonts/CourierPrime-Regular.ttf'
 import { default as Gruppo } from './fonts/Gruppo-Regular.ttf'
@@ -20,6 +22,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin:0;
     padding:0;
+    color: white;
+    font-size: ${isMobile ? fontS : fontM};
   }
 
   html, body, #root {
@@ -29,15 +33,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    background-color: ${COLORS.pink};
+    background-color: black;
     overflow: scroll;
   }
 
-  a {
-    color: ${COLORS.purple};
-   
-
-  }
 
 `
 

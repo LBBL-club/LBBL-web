@@ -7,7 +7,7 @@ export const Logo = () => {
     <Link to="/">
       <img
         style={{
-          width: isMobile ? '20%' : '15%',
+          width: isMobile ? '80px' : '120px',
         }}
         src={lbbl_ani}
         alt="LBBL"

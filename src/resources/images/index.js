@@ -7,3 +7,12 @@ export { default as test3 } from './test3.JPG'
 export { default as test4 } from './test4.JPG'
 export { default as test5 } from './test5.JPG'
 export { default as test6 } from './test6.JPG'
+
+export { default as green_arrow } from './green_arrow.png'
+export { default as main_picture } from './main_picture.png'
+export { default as orange_button } from './orange_send_button.png'
+export { default as white_star_1 } from './white_visual_1.png'
+export { default as white_star_2 } from './white_visual_2.png'
+export { default as orange_mark } from './orange_mark.png'
+
+export { default as logo } from './logo.png'

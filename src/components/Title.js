@@ -5,11 +5,10 @@ export const TitleL = styled.div`
   font-family: 'Gruppo';
   margin-top: ${({ margin }) => (margin ? margin : '3vh')};
   color: white;
-  -webkit-text-stroke: ${isMobile ? '0.2px black' : '1.3px black'};
-  font-size: ${isMobile ? '230%' : '500%'};
+  font-size: ${isMobile ? '32px' : '96px'};
 `
 
 export const TitleM = styled.div`
-  margin: 10px 0;
-  font-size: ${isMobile ? '200%' : '350%'};
+  margin: 0;
+  font-size: ${isMobile ? '28px' : '48px'};
 `
