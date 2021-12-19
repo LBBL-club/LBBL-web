@@ -22,11 +22,11 @@ jobs:
           ref: master
 
       # 노드 세팅
-      - name: Use Node.js v16
+      - name: Use Node.js v12
         if: ${{ success() }}
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '12.x'
 
       - name: yarn install
         if: ${{ success() }}
