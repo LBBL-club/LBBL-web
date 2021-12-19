@@ -28,15 +28,15 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: npm install
+      - name: yarn install
         if: ${{ success() }}
         run: |
-          npm install
+          yarn install
       # 빌드 & 배포
       - name: Production Build
         if: ${{ success() }}
         run: |
-          npm run build
+          yarn build
 
       - name: Deploy to S3
         if: ${{ success() }}
