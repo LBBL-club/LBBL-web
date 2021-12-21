@@ -38,18 +38,18 @@ const GlobalStyle = createGlobalStyle`
 
   @keyframes fade {
     from { opacity: 1.0; }
-    90% { opacity: 0.5; }
+    50% { opacity: 0.5; }
     to { opacity: 1.0; }
   }                                                                                                                                                                                                                                  
 
   @-webkit-keyframes fade {
       from { opacity: 1.0; }
-      90% { opacity: 0.5; }
+      50% { opacity: 0.5; }
       to { opacity: 1.0; }
   }
 
   .blink {
-    animation:fade 1000ms infinite;
+    animation:fade 2000ms infinite;
     -webkit-animation:fade 2000ms infinite;
   }
 
