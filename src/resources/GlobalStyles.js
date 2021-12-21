@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { COLORS } from './colors'
 import { isMobile } from 'react-device-detect'
-import { fontM, fontS, fontL } from './fonts'
+import { fontM, fontS } from './fonts'
 
 import { default as CourierPrime } from './fonts/CourierPrime-Regular.ttf'
 import { default as Gruppo } from './fonts/Gruppo-Regular.ttf'
@@ -35,6 +34,23 @@ const GlobalStyle = createGlobalStyle`
   #root {
     background-color: black;
     overflow: scroll;
+  }
+
+  @keyframes fade {
+    from { opacity: 1.0; }
+    90% { opacity: 0.5; }
+    to { opacity: 1.0; }
+  }                                                                                                                                                                                                                                  
+
+  @-webkit-keyframes fade {
+      from { opacity: 1.0; }
+      90% { opacity: 0.5; }
+      to { opacity: 1.0; }
+  }
+
+  .blink {
+    animation:fade 1000ms infinite;
+    -webkit-animation:fade 2000ms infinite;
   }
 
 

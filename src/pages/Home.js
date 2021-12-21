@@ -88,6 +88,7 @@ export const Home = () => {
           }}
         >
           <ImageL
+            className="blink"
             src={white_star_1}
             alt="*"
             style={{
@@ -99,7 +100,7 @@ export const Home = () => {
           <TitleM>Hi, We are </TitleM>
           <TitleM>
             LBBL club.
-            <ImageM src={white_star_2} alt="*" />
+            <ImageM className="blink" src={white_star_2} alt="*" />
           </TitleM>
 
           <div
