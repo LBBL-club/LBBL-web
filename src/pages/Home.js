@@ -9,11 +9,9 @@ import {
   ImageS,
   ImageM,
   ImageL,
-  Line,
   TitleL,
   Button,
   TitleM,
-  Logo,
   Content,
 } from '../components'
 import {
@@ -23,10 +21,9 @@ import {
   white_star_2,
   orange_mark,
 } from '../resources/images'
-import { fontS, fontM, fontL } from '../resources/fonts'
+import { fontS, fontL } from '../resources/fonts'
 import { getLoves } from '../data'
 import { introduces } from '../utils/config'
-import { test1, test2, test3, test4, test5, test6 } from '../resources/images'
 
 export const Home = () => {
   const [albumCount, setAlbumCount] = useState(4)
@@ -56,7 +53,7 @@ export const Home = () => {
             alignItems: 'center',
           }}
         >
-          <Button fnc={() => alert('Sorry.. ㅑ have no time.... 😂')}>
+          <Button fnc={() => alert('Sorry.. I have no time.... 😂')}>
             <div>Projects</div>
             <ImageS src={green_arrow} alt="->" />
           </Button>
@@ -232,6 +229,8 @@ const PhotoAlbum = ({ albumCount }) => {
                     </p>
                   </div>
                 )
+              } else {
+                return undefined
               }
             })}
           </div>

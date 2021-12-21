@@ -1,23 +1,17 @@
-import {
-  Container,
-  Image,
-  ImageL,
-  Line,
-  TitleL,
-  Content,
-  Input,
-} from '../components'
+import { Container, Image, Line, TitleL, Content, Input } from '../components'
 
 import { logo, orange_button } from '../resources/images'
 
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { isMobile } from 'react-device-detect'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { createLove, createLovePhoto, getLovesDetail } from '../data'
+import { getLovesDetail } from '../data'
 
 export const Msgs = () => {
   const { code } = useParams()
+
+  const s3Url = 'https://lbbl.s3.ap-northeast-2.amazonaws.com/love/'
   const history = useHistory()
   const [name, setName] = useState()
   const [content, setContent] = useState()
@@ -50,12 +44,24 @@ export const Msgs = () => {
       </TitleL>
 
       <Content margin="10vh">
+        <div style={{ margin: '20px auto', textAlign: 'center' }}>
+          <Image
+            src={`${s3Url}` + code}
+            style={{
+              width: isMobile ? '100%' : '50%',
+
+              borderRadius: '20px',
+              cursor: 'pointer',
+            }}
+            alt="LBBL"
+          />
+        </div>
         <div
           style={{
             display: 'flex',
           }}
         >
-          <div>From:</div>
+          <div style={{ padding: 5 }}>From:</div>
           <Input width="100%" defaultValue={name} style={{ color: 'white' }} />
         </div>
         <Line margin="10px" />
