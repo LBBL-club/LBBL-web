@@ -14,9 +14,12 @@ import { Link } from 'react-router-dom'
 import { isMobile } from 'react-device-detect'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
+import { createLove, createLovePhoto } from '../data'
 
 export const Love = () => {
   const history = useHistory()
+  const [name, setName] = useState()
+  const [content, setContent] = useState()
 
   const setFileName = (e) => {
     let filename = document.getElementById('fileName')
@@ -28,7 +31,26 @@ export const Love = () => {
   }
 
   const sendMsgs = () => {
-    console.log('send')
+    console.log(name, content)
+    let file = document.getElementById('regFile')
+    let regFile = file.files[0]
+    let type
+    if (regFile) {
+      type = regFile.name.split('.').pop()
+    } else {
+      alert('사진을 첨부해 주세요!!!!!!!')
+      return
+    }
+
+    let data = {}
+    data.name = name
+    data.content = content
+
+    createLove(data).then((data) => {
+      createLovePhoto(regFile, type, data.code)
+      alert('thank you for love !')
+      history.push('/')
+    })
   }
 
   return (
@@ -55,7 +77,12 @@ export const Love = () => {
           }}
         >
           <div>From:</div>
-          <Input width="100%" />
+          <Input
+            width="100%"
+            onChange={(e) => {
+              setName(e.target.value)
+            }}
+          />
         </div>
         <Line margin="10px" />
         <div>
@@ -66,6 +93,9 @@ export const Love = () => {
               height: '30vh',
               padding: '15px',
               width: '100%',
+            }}
+            onChange={(e) => {
+              setContent(e.target.value)
             }}
           />
         </div>
@@ -81,12 +111,12 @@ export const Love = () => {
             type="file"
             name="file"
             accept="image/*"
-            id="bizFile"
+            id="regFile"
             onChange={setFileName}
             style={{ display: 'none', cursor: 'pointer' }}
           />
           <label
-            htmlFor="bizFile"
+            htmlFor="regFile"
             style={{
               cursor: 'pointer',
               backgroundColor: '#c4c4c4',

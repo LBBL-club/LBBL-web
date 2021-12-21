@@ -1,5 +1,5 @@
 import { Route, BrowserRouter } from 'react-router-dom'
-import { Home, Love } from '../pages'
+import { Home, Love, Msgs } from '../pages'
 
 export const Router = () => {
   return (
@@ -12,6 +12,10 @@ export const Router = () => {
       </Route>
       <Route path={'/love'}>
         <Love />
+      </Route>
+
+      <Route path={'/msgs/:code'}>
+        <Msgs />
       </Route>
     </BrowserRouter>
   )

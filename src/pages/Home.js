@@ -1,3 +1,8 @@
+import { Link } from 'react-router-dom'
+import { isMobile } from 'react-device-detect'
+import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
+
 import {
   Container,
   Image,
@@ -19,13 +24,9 @@ import {
   orange_mark,
 } from '../resources/images'
 import { fontS, fontM, fontL } from '../resources/fonts'
+import { getLoves } from '../data'
 import { introduces } from '../utils/config'
 import { test1, test2, test3, test4, test5, test6 } from '../resources/images'
-
-import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
-import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 
 export const Home = () => {
   const [albumCount, setAlbumCount] = useState(4)
@@ -55,7 +56,7 @@ export const Home = () => {
             alignItems: 'center',
           }}
         >
-          <Button>
+          <Button fnc={() => alert('Sorry.. ㅑ have no time.... 😂')}>
             <div>Projects</div>
             <ImageS src={green_arrow} alt="->" />
           </Button>
@@ -131,7 +132,6 @@ export const Home = () => {
           display: 'flex',
           justifyContent: 'flex-end',
           alignItems: 'center',
-          cursor: 'pointer',
         }}
       >
         <Image width={isMobile ? '30px' : ''} src={green_arrow} alt="->" />
@@ -141,6 +141,8 @@ export const Home = () => {
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
+
+            cursor: 'pointer',
           }}
         >
           &ensp;
@@ -168,30 +170,20 @@ export const Home = () => {
 }
 
 const PhotoAlbum = ({ albumCount }) => {
-  const [photos, setPhotos] = useState([])
+  const [loves, setLoves] = useState([])
+
+  const history = useHistory()
+  const s3Url = 'https://lbbl.s3.ap-northeast-2.amazonaws.com/love/'
 
   useEffect(() => {
-    setPhotos([
-      test1,
-      test2,
-      test5,
-      test4,
-      test3,
-      test6,
-      test1,
-      test2,
-      test5,
-      test4,
-      test3,
-      test6,
-      test1,
-      test2,
-      test5,
-      test4,
-      test3,
-      test6,
-    ])
+    const init = async () => {
+      const loves = await getLoves()
+      console.log('loves', loves)
+      setLoves(loves)
+    }
+    init()
   }, [])
+
   return (
     <div
       style={{
@@ -212,18 +204,22 @@ const PhotoAlbum = ({ albumCount }) => {
             }}
             key={albumIndex}
           >
-            {photos.map((photo, photoIndex) => {
-              if (photoIndex % albumCount === albumIndex) {
+            {loves.map((love, loveIndex) => {
+              if (loveIndex % albumCount === albumIndex) {
                 return (
-                  <div key={photoIndex}>
+                  <div key={loveIndex}>
                     <Image
                       width="100%"
-                      src={photo}
+                      src={`${s3Url}` + love.code}
                       style={{
                         margin: '20px 0 0 0',
                         borderRadius: '20px',
+                        cursor: 'pointer',
                       }}
-                      alt="test"
+                      alt="LBBL"
+                      onClick={(e) => {
+                        history.push(`/msgs/${love.code}`)
+                      }}
                     />
                     <p
                       style={{
@@ -231,7 +227,8 @@ const PhotoAlbum = ({ albumCount }) => {
                         marginTop: 0.5,
                       }}
                     >
-                      다은 | 2020.05.29
+                      {love.name} |{' '}
+                      {love.created.slice(2, 10).replaceAll('-', '.')}
                     </p>
                   </div>
                 )
