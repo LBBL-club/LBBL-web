@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
+import { isMobile } from '../config'
 
 export const Image = styled.img`
   width: ${({ width }) => (width ? width : '')};
@@ -15,4 +15,8 @@ export const ImageM = styled.img`
 
 export const ImageL = styled.img`
   width: ${isMobile ? '24px' : '32px'};
+`
+
+export const ImageXL = styled.img`
+  width: ${isMobile ? '64px' : '96px'};
 `

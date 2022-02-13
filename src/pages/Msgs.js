@@ -3,7 +3,7 @@ import { Container, Image, Line, TitleL, Content, Input } from '../components'
 import { logo, orange_button } from '../resources/images'
 
 import { useParams } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
+import { isMobile } from '../config'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import { getLovesDetail } from '../data'

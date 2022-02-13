@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
+import { Link, useHistory } from 'react-router-dom'
+import { isMobile, introduces } from '../config'
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 
 import {
   Container,
@@ -16,6 +15,7 @@ import {
 } from '../components'
 import {
   main_picture,
+  main_picture2,
   green_arrow,
   white_star_1,
   white_star_2,
@@ -23,7 +23,6 @@ import {
 } from '../resources/images'
 import { fontS, fontL } from '../resources/fonts'
 import { getLoves } from '../data'
-import { introduces } from '../utils/config'
 
 export const Home = () => {
   const [albumCount, setAlbumCount] = useState(4)
@@ -53,7 +52,7 @@ export const Home = () => {
             alignItems: 'center',
           }}
         >
-          <Button fnc={() => alert('Sorry.. I have no time.... 😂')}>
+          <Button fnc={() => history.push('/projects')}>
             <div>Projects</div>
             <ImageS src={green_arrow} alt="->" />
           </Button>
@@ -71,13 +70,13 @@ export const Home = () => {
         style={{ position: 'relative', minHeight: isMobile ? '55vh' : '90vh' }}
       >
         <Image
-          src={main_picture}
+          src={main_picture2}
           alt="LBBL"
-          width={isMobile ? '60%' : '70%'}
+          width={isMobile ? '70%' : '50%'}
           style={{
             position: 'absolute',
             top: isMobile ? '10vh' : '10%',
-            left: '40%',
+            left: isMobile ? '40%' : '50%',
           }}
         />
         <div
@@ -176,7 +175,6 @@ const PhotoAlbum = ({ albumCount }) => {
   useEffect(() => {
     const init = async () => {
       const loves = await getLoves()
-      console.log('loves', loves)
       setLoves(loves)
     }
     init()

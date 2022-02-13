@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { isMobile } from 'react-device-detect'
+import { isMobile } from '../config'
 import { fontM, fontS } from './fonts'
 
 import { default as CourierPrime } from './fonts/CourierPrime-Regular.ttf'

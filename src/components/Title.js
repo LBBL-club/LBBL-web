@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
+import { isMobile } from '../config'
 
 export const TitleL = styled.div`
   font-family: 'Gruppo';
@@ -9,6 +9,8 @@ export const TitleL = styled.div`
 `
 
 export const TitleM = styled.div`
-  margin: 0;
+  font-family: ${({ fontFamily }) => (fontFamily ? fontFamily : 'Gruppo')};
+  margin-top: ${({ margin }) => (margin ? margin : '3vh')};
+  color: white;
   font-size: ${isMobile ? '28px' : '48px'};
 `

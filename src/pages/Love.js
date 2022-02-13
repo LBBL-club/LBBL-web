@@ -1,19 +1,10 @@
-import {
-  Container,
-  Image,
-  ImageL,
-  Line,
-  TitleL,
-  Content,
-  Input,
-} from '../components'
+import { Container, Image, Line, TitleL, Content, Input } from '../components'
 
 import { logo, orange_button } from '../resources/images'
 
-import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
-import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
+import { isMobile } from '../config'
+import { useState } from 'react'
 import { createLove, createLovePhoto } from '../data'
 
 export const Love = () => {
@@ -23,7 +14,7 @@ export const Love = () => {
 
   const setFileName = (e) => {
     let filename = document.getElementById('fileName')
-    if (e.target.files[0] == undefined) {
+    if (e.target.files[0] === undefined) {
       filename.innerText = ''
       return
     }
@@ -31,14 +22,13 @@ export const Love = () => {
   }
 
   const sendMsgs = () => {
-    console.log(name, content)
     let file = document.getElementById('regFile')
     let regFile = file.files[0]
     let type
     if (regFile) {
       type = regFile.name.split('.').pop()
     } else {
-      alert('사진을 첨부해 주세요!!!!!!!')
+      alert('사진을 첨부해 주세요!!~!~!')
       return
     }
 

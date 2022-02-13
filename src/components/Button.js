@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
-
-import { COLORS } from '../resources/colors'
+import { isMobile } from '../config'
 
 const ButtonStyle = styled.button`
   font-family: 'CourierPrime';

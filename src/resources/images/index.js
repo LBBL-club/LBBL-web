@@ -10,9 +10,15 @@ export { default as test6 } from './test6.JPG'
 
 export { default as green_arrow } from './green_arrow.png'
 export { default as main_picture } from './main_picture.png'
+export { default as main_picture2 } from './main_picture2.png'
 export { default as orange_button } from './orange_send_button.png'
 export { default as white_star_1 } from './white_visual_1.png'
 export { default as white_star_2 } from './white_visual_2.png'
 export { default as orange_mark } from './orange_mark.png'
+
+export { default as kor_gray } from './kor_gray.png'
+export { default as kor_orange } from './kor_orange.png'
+export { default as eng_gray } from './eng_gray.png'
+export { default as eng_orange } from './eng_orange.png'
 
 export { default as logo } from './logo.png'

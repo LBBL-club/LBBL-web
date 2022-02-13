@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
+import { isMobile } from '../config'
 
 export const ContainerStyle = styled.main`
   display: flex;

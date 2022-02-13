@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
 
 export const Content = styled.article`
   width: 85%;
