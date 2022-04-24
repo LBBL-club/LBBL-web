@@ -1,18 +1,10 @@
-import {
-  Container,
-  Image,
-  TitleL,
-  TitleM,
-  Content,
-  Line,
-  ImageXL,
-} from '../components'
+import { Container, Image, TitleL, TitleM, Content, Line } from '../components'
 import { logo } from '../resources/images'
 import { isMobile } from '../config'
 import { useHistory } from 'react-router-dom'
 import { COLORS } from '../resources/colors'
 import { useState, useEffect } from 'react'
-import { fontS, fontM, fontL } from '../resources/fonts'
+import { fontL } from '../resources/fonts'
 import { kor_gray, kor_orange, eng_gray, eng_orange } from '../resources/images'
 
 export const Projects = () => {
@@ -27,12 +19,14 @@ export const Projects = () => {
       case 'eng':
         setData(dataEng)
         setLangButton([kor_gray, eng_orange])
+        break
 
       default:
         setData(dataKor)
         setLangButton([kor_orange, eng_gray])
     }
   }, [language])
+
   return (
     <Container>
       <TitleL

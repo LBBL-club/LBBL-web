@@ -14,15 +14,16 @@ import {
   Content,
 } from '../components'
 import {
-  main_picture,
   main_picture2,
   green_arrow,
   white_star_1,
   white_star_2,
   orange_mark,
+  opensea,
 } from '../resources/images'
 import { fontS, fontL } from '../resources/fonts'
 import { getLoves } from '../data'
+import { mint } from '../klaytn/kaikas'
 
 export const Home = () => {
   const [albumCount, setAlbumCount] = useState(4)
@@ -57,10 +58,25 @@ export const Home = () => {
             <ImageS src={green_arrow} alt="->" />
           </Button>
 
-          <Button fnc={() => history.push('/love')}>
-            <div>Messages</div>
+          <Button
+            fnc={() => {
+              mint()
+            }}
+          >
+            <div style={{ marginRight: 3, position: 'relative' }}>NFT</div>
+
             <ImageS src={green_arrow} alt="->" />
           </Button>
+
+          <div style={{ cursor: 'pointer' }}>
+            <a
+              href="https://opensea.io/collection/lbbl-club"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ImageL src={opensea} alt="opensea" />
+            </a>
+          </div>
         </div>
       </TitleL>
 
@@ -138,7 +154,6 @@ export const Home = () => {
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
-
             cursor: 'pointer',
           }}
         >
@@ -170,7 +185,7 @@ const PhotoAlbum = ({ albumCount }) => {
   const [loves, setLoves] = useState([])
 
   const history = useHistory()
-  const s3Url = 'https://lbbl.s3.ap-northeast-2.amazonaws.com/love/'
+  const s3Url = 'https://lbbl-club.s3.ap-northeast-2.amazonaws.com/love/'
 
   useEffect(() => {
     const init = async () => {

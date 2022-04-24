@@ -14,7 +14,7 @@ export const ImageM = styled.img`
 `
 
 export const ImageL = styled.img`
-  width: ${isMobile ? '24px' : '32px'};
+  width: ${isMobile ? '32px' : '48px'};
 `
 
 export const ImageXL = styled.img`

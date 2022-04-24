@@ -11,7 +11,7 @@ import { getLovesDetail } from '../data'
 export const Msgs = () => {
   const { code } = useParams()
 
-  const s3Url = 'https://lbbl.s3.ap-northeast-2.amazonaws.com/love/'
+  const s3Url = 'https://lbbl-club.s3.ap-northeast-2.amazonaws.com/love/'
   const history = useHistory()
   const [name, setName] = useState()
   const [content, setContent] = useState()

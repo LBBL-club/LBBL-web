@@ -20,5 +20,6 @@ export { default as kor_gray } from './kor_gray.png'
 export { default as kor_orange } from './kor_orange.png'
 export { default as eng_gray } from './eng_gray.png'
 export { default as eng_orange } from './eng_orange.png'
+export { default as opensea } from './opensea.png'
 
 export { default as logo } from './logo.png'
