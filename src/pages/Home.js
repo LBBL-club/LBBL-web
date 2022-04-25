@@ -60,7 +60,9 @@ export const Home = () => {
 
           <Button
             fnc={() => {
-              mint()
+              if (window.confirm('LBBL-CLUB NFT 민팅 하시겠습니까? (무료)')) {
+                mint()
+              }
             }}
           >
             <div style={{ marginRight: 3, position: 'relative' }}>NFT</div>
