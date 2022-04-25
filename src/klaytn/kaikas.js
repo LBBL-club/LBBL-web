@@ -6,6 +6,7 @@ import {
   privateKey,
 } from './config'
 import { isMobile } from '../config'
+import { getRandom } from '../utils'
 
 export const test = () => {
   alert('aaa')
@@ -57,9 +58,8 @@ const checkKaiKas = async () => {
 const transaction = async (account) => {
   const caverK = new Caver(window.klaytn)
   caverK.klay.accounts.wallet.add(privateKey, creatorAddress)
-
-  let uri =
-    'https://lbbl-club.s3.ap-northeast-2.amazonaws.com/nft/meta_001.json'
+  let ranInt = getRandom(1, 4)
+  let uri = `https://lbbl-club.s3.ap-northeast-2.amazonaws.com/nft/meta_00${ranInt}.json`
 
   const myContract = new caverK.klay.Contract(contractABI, contractAddress)
   let res = await myContract.methods.balanceOf(account).call()
@@ -69,7 +69,7 @@ const transaction = async (account) => {
   console.log('balanceOf', res)
 
   if (res > 0) {
-    alert('한사람당 한개의 NFT만 소유할 수 있습니다.')
+    alert('한 사람당 1개의 NFT만 소유할 수 있습니다. 🥲')
   } else {
     console.log(`${account} 0개 소유`)
 
@@ -90,13 +90,13 @@ const transaction = async (account) => {
           feePayer: creatorAddress,
         })
         .then((e) => {
-          alert('NFT 민팅 성공! opensea에서 확인하세요!')
+          alert('NFT 민팅 성공! opensea에서 확인하세요! 😊')
         })
     } catch (error) {
       if (error.message.includes('User denied')) {
         alert('트랜젝션이 거부되었습니다.')
       } else {
-        console.log('뭔놈의 에러가 이렇게 많아')
+        console.log(error.message)
       }
     }
   }

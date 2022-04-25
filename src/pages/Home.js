@@ -60,7 +60,11 @@ export const Home = () => {
 
           <Button
             fnc={() => {
-              if (window.confirm('LBBL-CLUB NFT 민팅 하시겠습니까? (무료)')) {
+              if (
+                window.confirm(
+                  'LBBL CLUB의 사진을 NFT로 소장하세요. 무료로 쏴드립니다 😘'
+                )
+              ) {
                 mint()
               }
             }}

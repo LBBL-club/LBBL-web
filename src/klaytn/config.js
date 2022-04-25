@@ -1,6 +1,7 @@
 export const contractAddress = '0x7e684ac09d53f76f4519ff5e3103aa3229d90e9b'
 export const creatorAddress = '0x5542f5bc02618df08a82ef77fcc3e07f47b67c42'
-export const privateKey = '0x92a0a60687058bff3e423c0d0d03dffe99eb6a5ec188e192922c4620d9a6ceba'
+export const privateKey =
+  '0x92a0a60687058bff3e423c0d0d03dffe99eb6a5ec188e192922c4620d9a6ceba'
 export const contractABI = [
   {
     constant: true,
